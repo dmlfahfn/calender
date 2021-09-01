@@ -1,12 +1,10 @@
 import React from 'react';
-import Moment from 'react-moment';
-import 'moment-timezone';
-import Calender from './Calender';
+import Calendar from './Calendar';
 
 class App extends React.Component {
   render() {
     return (
-      <Calender />
+      <Calendar />
     )
   }
 };
