@@ -8,11 +8,11 @@ const ReactCalendar = () => {
   const onChange = date => {
     setDate(date)
   };
-  
+
   return (
     <div>
       <Calendar showWeekNumbers onChange={onChange} value={date}/>
-      {date.toString()}
+      {date.toString()}     
       {EventCalendar(date)}
     </div>
   )

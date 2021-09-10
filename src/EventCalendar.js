@@ -1,31 +1,19 @@
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
+import React, { useState } from "react";
+import ChildEvent from "./ChildEvent";
 
-const EventCalendar = (date) => {  
- 
- const [todoInput, setTodoInput] = useState("");
+const EventCalendar = (props) => {  
 
- let mouseUp = () => {
-    document.addEventListener('mouseup', (e) => {
-        console.log(date);
-    });
-    return () => {
-        document.removeEventListener('mouseup', (e) => {
-            console.log("remove click");
-        });
-    }
-};
-useEffect(mouseUp, [ todoInput ]);
+  const [click, setClick] = useState(props);
+  //console.log("click", click + "--- props", props);
  
  return (
 
-    <div  
-        addEvent={setTodoInput}> 
+    <div>
+
+        <ChildEvent click={props} setClick={setClick} />
+
     </div>
-    //  <form onSubmit={handleSubmit}>
-    //      <input type="text" />
-    //      <button type="submit">Save</button>
-    //  </form>
+
  )
 };
 

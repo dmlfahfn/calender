@@ -1,13 +1,56 @@
+html,
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: Segoe UI, Tahoma, sans-serif;
+}
+
+.Sample {
+  input, button {
+    font: inherit;
+  }
+
+  header {
+    background-color: rgb(50, 54, 57);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .5);
+    padding: 20px;
+    color: white;
+
+    h1 {
+      font-size: inherit;
+      margin: 0;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 10px 0;
+    padding: 10px;
+
+    & > * {
+      & > * {
+        margin: 10px;
+      }
+    }
+
+    &__content {
+      display: flex;
+      max-width: 100%;
+      flex-basis: 420px;
+      flex-direction: column;
+      flex-grow: 100;
+      align-items: stretch;
+      padding-top: 1em;
+
+      .react-calendar {
+        margin: 0 auto;
+      }
+    }
+  }
 }
