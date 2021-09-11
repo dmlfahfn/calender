@@ -11,7 +11,7 @@ const Todo = ({todo, completeTodo, removeTodo}) => {
         {!todo.isCompleted && (
         <div>
           <button onClick={() => completeTodo(todo)}>Complete</button>
-          <button onClick={() => removeTodo(todo)}>x</button>
+          <button onClick={() => removeTodo(todo)}>Delete</button>
         </div>
         )}
       </div>

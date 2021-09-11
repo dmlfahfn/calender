@@ -14,7 +14,7 @@ const ReactCalendar = () => {
     <div>
       <Calendar showWeekNumbers onChange={onChange} value={date} tileContent={({ date, view }) => todos.filter(todo => date.getDate() === todo.date.getDate() 
      && date.getMonth() === todo.date.getMonth()
-     && date.getFullYear() === todo.date.getFullYear()).length ? <p>{[todos].length}</p> : null}/>
+     && date.getFullYear() === todo.date.getFullYear()).length ? <p>{todos.length}</p> : null}/>
       {date.toString()}     
       <ClickDate {...{date, todos, setTodos}} />
     </div>
