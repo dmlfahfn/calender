@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 
 //Print todos
-const Todo = ({todo, index, completeTodo}) => {
+const Todo = ({todo, completeTodo, removeTodo}) => {
     return (
       <div      
       style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
@@ -11,6 +11,7 @@ const Todo = ({todo, index, completeTodo}) => {
         {!todo.isCompleted && (
         <div>
           <button onClick={() => completeTodo(todo)}>Complete</button>
+          <button onClick={() => removeTodo(todo)}>x</button>
         </div>
         )}
       </div>
@@ -18,12 +19,13 @@ const Todo = ({todo, index, completeTodo}) => {
 };
 
 //Parent component for all other components
-const ShowTodo = ({todo, completeTodo}) => {
+const ShowTodo = ({todo, completeTodo, removeTodo}) => {
     return (
         <div>
           <Todo
             todo={todo}
             completeTodo={completeTodo}
+            removeTodo={removeTodo}
           />
           
         </div>

@@ -6,7 +6,6 @@ const TodoForm = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        debugger;
         if (!todo) return;
         setTodos([...todos, {todo, date}]);
         setTodo("");

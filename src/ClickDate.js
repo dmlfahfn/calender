@@ -14,10 +14,16 @@ const ClickDate = (props) => {
     setTodos([...newTodos, todo])
   };
 
+  const removeTodo = todo => {
+    const delTodos = [...todos];
+    delTodos.splice(todo, 1);
+    setTodos(delTodos);
+  };
+
  return (
 
     <div>
-      {filtered.map(todo => <ShowTodo {...{todo, completeTodo}}/>)}
+      {filtered.map(todo => <ShowTodo {...{todo, completeTodo, removeTodo}}/>)}
       <TodoForm {...{date, setTodos, todos}} />
     </div>
 
