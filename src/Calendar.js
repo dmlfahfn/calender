@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
-import EventCalendar from "./EventCalendar"
+import ClickDate from "./ClickDate"
 
 const ReactCalendar = () => {
   const [date, setDate] = useState(new Date()) ;
@@ -13,7 +13,7 @@ const ReactCalendar = () => {
     <div>
       <Calendar showWeekNumbers onChange={onChange} value={date}/>
       {date.toString()}     
-      {EventCalendar(date)}
+      {ClickDate(date)}
     </div>
   )
 }
