@@ -3,6 +3,7 @@ import React from "react";
 
 //Print todos
 const Todo = ({todo, completeTodo, removeTodo}) => {
+
     return (
       <div      
       style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
@@ -20,6 +21,7 @@ const Todo = ({todo, completeTodo, removeTodo}) => {
 
 //Parent component for all other components
 const ShowTodo = ({todo, completeTodo, removeTodo}) => {
+
     return (
         <div>
           <Todo
