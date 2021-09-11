@@ -1,13 +1,14 @@
 import React, {useState} from "react"
 
-const TodoForm = ({addTodo, click}) => {
-    console.log("addTodo", addTodo, "click", click);
+const TodoForm = (props) => {
+    const {setTodos, date, todos = []} = props;
     const [todo, setTodo] = useState("")
 
     const handleSubmit = e => {
         e.preventDefault();
-        if (!todo && !click) return;
-        addTodo(todo);
+        debugger;
+        if (!todo) return;
+        setTodos([...todos, {todo, date}]);
         setTodo("");
       };
     
@@ -15,7 +16,7 @@ const TodoForm = ({addTodo, click}) => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          todo={todo}
+          value= {todo}
           onChange={e => setTodo(e.target.value)}
         />
       </form>

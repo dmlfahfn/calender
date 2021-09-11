@@ -4,6 +4,7 @@ import ClickDate from "./ClickDate"
 
 const ReactCalendar = () => {
   const [date, setDate] = useState(new Date()) ;
+  const [todos, setTodos] = useState([]);
 
   const onChange = date => {
     setDate(date)
@@ -11,9 +12,11 @@ const ReactCalendar = () => {
 
   return (
     <div>
-      <Calendar showWeekNumbers onChange={onChange} value={date}/>
+      <Calendar showWeekNumbers onChange={onChange} value={date} tileContent={({ date, view }) => todos.filter(todo => date.getDate() === todo.date.getDate() 
+     && date.getMonth() === todo.date.getMonth()
+     && date.getFullYear() === todo.date.getFullYear()).length ? <p>Todos!</p> : null}/>
       {date.toString()}     
-      {ClickDate(date)}
+      <ClickDate {...{date, todos, setTodos}} />
     </div>
   )
 }

@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ShowTodo from "./ShowTodo";
-import TodoForm from "./ShowTodo";
+import TodoForm from "./TodoForm";
 
 const ClickDate = (props) => {  
 
-  const [click, setClick] = useState(props);
-  //console.log("click", click + "--- props", props);
+  const {date, todos, setTodos} = props;
 
-  useEffect(() => {
-
-  }, [props])
+  const filtered = todos.filter(todo => todo.date == date)
  
+  const completeTodo = todo => {
+    const newTodos = todos.filter(t => t != todo);
+    todo.isCompleted = true;
+    setTodos([...newTodos, todo])
+  };
+
  return (
 
     <div>
-      <ShowTodo click={props} />
-      <TodoForm click={props} />
+      {filtered.map(todo => <ShowTodo {...{todo, completeTodo}}/>)}
+      <TodoForm {...{date, setTodos, todos}} />
     </div>
 
  )
