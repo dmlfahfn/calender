@@ -37,7 +37,11 @@ const ReactCalendar = () => {
       </React.Fragment>)}
       <div>
         {todos.map((t) => {
-          return  <li>Your Todo List: {t.todo}</li>
+          todos.sort((a, b) => {
+            let dateA = new Date(a.date), dateB = new Date(b.date);
+            return dateA - dateB;
+          })
+          return  <li>Your Todo: {t.todo}</li>
         })}
       </div>
     </div>
