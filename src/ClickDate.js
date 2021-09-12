@@ -23,7 +23,7 @@ const ClickDate = (props) => {
 
  return (
 
-    <div>
+    <div key={todos}>
       {filtered.map(todo => <ShowTodo {...{todo, completeTodo, removeTodo}}/>)}
       <TodoForm {...{date, setTodos, todos}} />
     </div>

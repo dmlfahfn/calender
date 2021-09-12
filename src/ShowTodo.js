@@ -5,8 +5,9 @@ import React from "react";
 const Todo = ({todo, completeTodo, removeTodo}) => {
 
     return (
-      <div      
+      <div     
       style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+      key={todo}
       >
         {todo.todo}
         {!todo.isCompleted && (
