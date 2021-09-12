@@ -27,7 +27,6 @@ const ReactCalendar = () => {
       <Calendar onChange={onChange} value={date && new Date(date)} tileContent = {({date}) => {
         const time = date && date.getTime()
         const filtered = todos.filter(todo => todo.date == time) 
-      
             return filtered.length ? <p>Todos: {filtered.length}</p> : null
             } 
           } 
@@ -36,6 +35,11 @@ const ReactCalendar = () => {
         {(new Date(date)).toString()}     
         <ClickDate {...{date, todos, setTodos}} />
       </React.Fragment>)}
+      <div>
+        {todos.map((t) => {
+          return  <li>Your Todo List: {t.todo}</li>
+        })}
+      </div>
     </div>
   )
 }
