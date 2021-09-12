@@ -4,30 +4,40 @@ import ClickDate from "./ClickDate";
 
 const ReactCalendar = () => {
 
-  const [date, setDate] = useState(new Date()) ;
-  const [todos, setTodos] = useState([] , () => {
-    let localTodos = localStorage.getItem("todos")  
-    return localTodos ? JSON.parse(localTodos) : []
-  });
-  
+  const [date, setDate] = useState() ;
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    let localTodos = JSON.parse(localStorage.getItem("todos"))
+    if(localTodos) {
+      setTodos(localTodos)
+    }
+  }, [])
+
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos])
 
   const onChange = date => {
-    setDate(date)
+    setDate(date.getTime())
   };
 
   return (
     <div>
-      <Calendar showWeekNumbers onChange={onChange} value={date} tileContent={({ date, view }) => todos.filter(todo => date.getDate() === todo.date.getDate() 
-     && date.getMonth() === todo.date.getMonth()
-     && date.getFullYear() === todo.date.getFullYear()).length ? <p>Todos: {todos.length}</p> : null}/>
-      {date.toString()}     
-      <ClickDate {...{date, todos, setTodos}} />
+      <Calendar onChange={onChange} value={date && new Date(date)} tileContent = {({date}) => {
+        const time = date && date.getTime()
+        const filtered = todos.filter(todo => todo.date == time) 
+      
+            return filtered.length ? <p>Todos: {filtered.length}</p> : null
+            } 
+          } 
+      />
+      {date && (<React.Fragment>
+        {(new Date(date)).toString()}     
+        <ClickDate {...{date, todos, setTodos}} />
+      </React.Fragment>)}
     </div>
   )
 }
-
-  
+ 
 export default ReactCalendar;

@@ -18,7 +18,6 @@ const ClickDate = (props) => {
     const delTodos = [...todos];
     delTodos.splice(todo, 1);
     setTodos(delTodos);
-    localStorage.removeItem("todos");
   };
 
  return (
